@@ -1,11 +1,15 @@
-@@extends('scaffold-interface.layouts.app')
+@@extends('layouts.main')
 @@section('title','Show')
 @@section('content')
 <section class="content">
-    <h1>Show {{$parser->singular()}}</h1>
-    <br>
+    <div class="box box-primary">
+        <div class="box-header">
+            <h3>Show {{ucwords(str_replace('_', ' ', $parser->singular()))}}</h3>
+        </div>
+        <div class="box-body">
+    
     <form method = 'get' action = '@{!!url("{{$parser->singular()}}")!!}'>
-        <button class = 'btn btn-primary'>{{$parser->singular()}} Index</button>
+        <button class = 'btn btn-primary'>Show All {{ucwords(str_replace('_', ' ', $parser->plural()))}}</button>
     </form>
     <br>
     <table class = 'table table-bordered'>
@@ -36,5 +40,7 @@
             @endif
         </tbody>
     </table>
+    </div>
+        </div>
 </section>
 @@endsection
